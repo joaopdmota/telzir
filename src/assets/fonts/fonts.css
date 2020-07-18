@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Rowdies-Bold";
+    src: url("Rowdies-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "Rowdies-Light";
+    src: url("Rowdies-Light.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "Rowdies-Regular";
+    src: url("Rowdies-Regular.ttf") format('truetype');
+}
