@@ -29,6 +29,7 @@ const CustomInput = styled(Field)`
     border: 1px solid blanchedalmond;
     padding: 10px;
     border-radius: 5px;
+    max-width: 100px;
 `;
 
 export default Input;

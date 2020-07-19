@@ -1,32 +1,47 @@
 import React, { FunctionComponent } from 'react';
-import { Field } from 'formik';
+import Select from 'react-select';
 import styled from 'styled-components';
 
-type InputProps = {
+type SelectProps = {
     name: string;
-    onChange: (e: any) => void;
     onBlur: (e: any) => void;
+    setFieldValue: (key: string, value: any) => void;
+    options: Array<any>;
     value: string;
 };
 
-const Input: FunctionComponent<InputProps> = ({
+const CustomSelect: FunctionComponent<SelectProps> = ({
     name,
-    onChange,
     onBlur,
+    options,
     value,
+    setFieldValue,
 }) => (
-    <CustomInput
-        name={name}
-        onChange={onChange}
-        onBlur={onBlur}
-        value={value}
-    />
+    <Wrapper>
+        <Select
+            placeholder=""
+            options={options}
+            name={name}
+            value={
+                options ? options.find((option) => option.value === value) : ''
+            }
+            onChange={(option: any) => setFieldValue(name, option.value)}
+            onBlur={onBlur}
+            theme={(theme: any) => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                    ...theme.colors,
+                    text: 'orangered',
+                    primary25: 'hotpink',
+                    primary: 'black',
+                },
+            })}
+        />
+    </Wrapper>
 );
 
-const CustomInput = styled(Field)`
-    outline: none;
-    border: 1px solid blanchedalmond;
-    padding: 10px;
+const Wrapper = styled.div`
+    max-width: 200px;
 `;
-
-export default Input;
+export default CustomSelect;

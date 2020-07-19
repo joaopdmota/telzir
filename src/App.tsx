@@ -41,7 +41,6 @@ const PageContentWrapper = styled.div`
         & .introduction--text {
             font-family: 'Rowdies-Bold';
             display: flex;
-            margin-top: 100px;
             font-size: 28px;
             color: white;
         }

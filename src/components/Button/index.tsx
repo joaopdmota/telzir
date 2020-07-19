@@ -3,15 +3,21 @@ import styled from 'styled-components';
 
 type ButtonProps = {
     disabled?: boolean;
+    styles?: Object;
     handleClick: () => void;
     text: string;
 };
 const Button: React.FunctionComponent<ButtonProps> = ({
     disabled,
     handleClick,
+    styles,
     text,
 }) => (
-    <StyledButton disabled={disabled || false} onClick={handleClick}>
+    <StyledButton
+        style={styles}
+        disabled={disabled || false}
+        onClick={handleClick}
+    >
         {text}
     </StyledButton>
 );
