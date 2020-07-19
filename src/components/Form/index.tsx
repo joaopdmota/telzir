@@ -93,7 +93,7 @@ const Form: FunctionComponent = () => {
                                 width: 'max-content',
                             }}
                             handleClick={() => console.log('teste')}
-                            text="Calcular economia"
+                            text="Quero economizar"
                         />
                     </form>
                 )}
