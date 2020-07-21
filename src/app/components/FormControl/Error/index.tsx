@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { Field, getIn } from 'formik';
 import styled from 'styled-components';
 
-type ErrorProps = {
+interface ErrorProps {
     name: string;
-};
+}
 
 const InputError: FunctionComponent<ErrorProps> = ({ name }) => (
     <Error>

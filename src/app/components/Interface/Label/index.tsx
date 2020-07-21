@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-type LabelProps = {
+interface LabelProps {
     text: string;
-};
+}
 
 const Label: FunctionComponent<LabelProps> = ({ text }) => (
     <StyledLabel>{text}</StyledLabel>

@@ -1,16 +1,22 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
+import Chart from '../Chart';
+import Modal from '../Modal';
 import Button from '../Button';
 import Input from '../FormControl/Input';
 import Error from '../FormControl/Error';
 import Select from '../FormControl/Select';
 import Divider from '../Divider';
 import Label from '../Interface/Label';
-import { CalculatorInputSchema } from '../../helpers/formSchemas';
-import { Options } from '../../helpers/options';
+import { CalculatorInputSchema, Options } from '../../../helpers';
+import { getDiscountRequest } from '../../core';
 
 const Form: FunctionComponent = () => {
+    const [modalResponse, setModalResponse] = useState(false);
+    const [simulationResults, setSimulationResults] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+
     return (
         <Wrapper>
             <Formik
@@ -22,11 +28,15 @@ const Form: FunctionComponent = () => {
                     destiny: '',
                 }}
                 validationSchema={CalculatorInputSchema}
-                onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
-                    }, 400);
+                onSubmit={async (values) => {
+                    setIsLoading(true);
+                    const simulationResult = await getDiscountRequest(values);
+                    setSimulationResults({
+                        ...simulationResult,
+                        simulationResult,
+                    });
+                    setIsLoading(false);
+                    setModalResponse(true);
                 }}
             >
                 {({
@@ -34,7 +44,6 @@ const Form: FunctionComponent = () => {
                     handleChange,
                     handleBlur,
                     handleSubmit,
-                    isSubmitting,
                     setFieldValue,
                 }) => (
                     <form onSubmit={handleSubmit}>
@@ -89,15 +98,24 @@ const Form: FunctionComponent = () => {
                         <Divider space={30} />
 
                         <Button
+                            isLoading={isLoading}
                             styles={{
                                 width: 'max-content',
                             }}
-                            handleClick={() => console.log('teste')}
                             text="Quero economizar"
                         />
                     </form>
                 )}
             </Formik>
+
+            {modalResponse && (
+                <Modal
+                    isOpen={modalResponse}
+                    closeModal={() => setModalResponse(false)}
+                >
+                    <Chart dataResult={simulationResults} />
+                </Modal>
+            )}
         </Wrapper>
     );
 };
@@ -107,6 +125,8 @@ const Wrapper = styled.div`
     width: 100%;
 
     & form {
+        height: calc(100vh - 400px);
+        overflow: auto;
         width: 100%;
         display: flex;
         flex-direction: column;

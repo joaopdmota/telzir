@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState } from 'react';
 import CookieConsent from 'react-cookie-consent';
 import styled from 'styled-components';
-import banner from './assets/images/banner.png';
-import Button from './components/Button';
-import Divider from './components/Divider';
-import Form from './components/Form';
+import banner from '../../assets/images/banner.png';
+import Button from '../components/Button';
+import Divider from '../components/Divider';
+import Form from '../components/Form';
 
 // https://medium.com/@yangnana11/react-import-react-reveal-7f7d484f6802
 const Zoom = require('react-reveal/Zoom');
@@ -20,6 +20,11 @@ const Wrapper = styled.div`
         rgb(100, 43, 115) 0%,
         rgb(198, 66, 110) 100%
     );
+
+    @media (max-width: 950px) {
+        overflow: auto;
+        height: unset;
+    }
 `;
 
 const StyledCookieConsent = styled(CookieConsent)`
@@ -35,6 +40,17 @@ const PageContentWrapper = styled.div`
     margin: 100px 200px 0px 200px;
     box-sizing: border-box;
 
+    @media (max-width: 950px) {
+        flex-direction: column;
+        margin: 50px 100px;
+    }
+
+    & .introduction {
+        @media (max-width: 950px) {
+            flex-direction: column;
+        }
+    }
+
     & .flex {
         width: 100%;
 
@@ -48,16 +64,30 @@ const PageContentWrapper = styled.div`
         & img {
             max-width: 100%;
             max-height: 700px;
+
+            @media (max-width: 1054px) {
+                max-width: 500px;
+                max-height: 500px;
+            }
+
+            @media (max-width: 950px) {
+                max-width: 500px;
+                max-height: 500px;
+            }
         }
     }
 
     & .banner {
         display: flex;
         justify-content: center;
+
+        @media (max-width: 950px) {
+            padding-top: 50px;
+        }
     }
 `;
 
-const App: FunctionComponent = () => {
+const Home: FunctionComponent = () => {
     const [startSimulation, setStartSimulation] = useState(false);
 
     return (
@@ -100,4 +130,4 @@ const App: FunctionComponent = () => {
     );
 };
 
-export default App;
+export default Home;

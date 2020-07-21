@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-type DividerProps = {
+interface DividerProps {
     space: number;
-};
+}
 
 const Divider: FunctionComponent<DividerProps> = ({ space }) => (
     <CustomDivider space={space}></CustomDivider>

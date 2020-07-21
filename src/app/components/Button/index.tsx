@@ -1,24 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type ButtonProps = {
+interface ButtonProps {
     disabled?: boolean;
-    styles?: Object;
-    handleClick: () => void;
+    isLoading?: boolean;
+    styles?: any;
+    handleClick?: () => void;
     text: string;
-};
+}
 const Button: React.FunctionComponent<ButtonProps> = ({
     disabled,
     handleClick,
     styles,
     text,
+    isLoading,
 }) => (
     <StyledButton
         style={styles}
         disabled={disabled || false}
         onClick={handleClick}
     >
-        {text}
+        {isLoading ? 'Carregando' : text}
     </StyledButton>
 );
 

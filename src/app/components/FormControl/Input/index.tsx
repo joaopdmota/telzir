@@ -2,12 +2,12 @@ import React, { FunctionComponent } from 'react';
 import { Field } from 'formik';
 import styled from 'styled-components';
 
-type InputProps = {
+interface InputProps {
     name: string;
     onChange: (e: any) => void;
     onBlur: (e: any) => void;
     value: string;
-};
+}
 
 const Input: FunctionComponent<InputProps> = ({
     name,
