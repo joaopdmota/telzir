@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 
     @media (max-width: 950px) {
         overflow: auto;
-        height: unset;
+        min-height: 100vh;
     }
 `;
 
@@ -40,9 +40,14 @@ const PageContentWrapper = styled.div`
     margin: 100px 200px 0px 200px;
     box-sizing: border-box;
 
+    @media (max-width: 768px) {
+        margin: 0px;
+        padding: 0px 20px;
+    }
+
     @media (max-width: 950px) {
         flex-direction: column;
-        margin: 50px 100px;
+        margin: 50px 50px;
     }
 
     & .introduction {
@@ -59,6 +64,10 @@ const PageContentWrapper = styled.div`
             display: flex;
             font-size: 28px;
             color: white;
+
+            @media (max-width: 1054px) {
+                font-size: 18px;
+            }
         }
 
         & img {
@@ -66,13 +75,7 @@ const PageContentWrapper = styled.div`
             max-height: 700px;
 
             @media (max-width: 1054px) {
-                max-width: 500px;
-                max-height: 500px;
-            }
-
-            @media (max-width: 950px) {
-                max-width: 500px;
-                max-height: 500px;
+                max-height: 400px;
             }
         }
     }

@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react';
+import { Grid } from '@material-ui/core';
 import Modal from 'react-modal';
 import Button from '../Button';
 
@@ -35,14 +36,15 @@ const CustomModal: FunctionComponent<ModalProps> = ({
         contentLabel={contentLabel}
     >
         {children}
-
-        <Button
-            text="Fechar"
-            styles={{
-                width: 'max-content',
-            }}
-            handleClick={closeModal}
-        />
+        <Grid container direction="row" justify="flex-end" alignItems="center">
+            <Button
+                text="Fechar"
+                styles={{
+                    width: 'max-content',
+                }}
+                handleClick={closeModal}
+            />
+        </Grid>
     </Modal>
 );
 

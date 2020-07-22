@@ -30,6 +30,10 @@ const CustomInput = styled(Field)`
     padding: 10px;
     border-radius: 5px;
     max-width: 100px;
+
+    @media screen and (max-width: 768px) {
+        max-width: unset;
+    }
 `;
 
 export default Input;

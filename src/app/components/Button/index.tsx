@@ -35,6 +35,10 @@ const StyledButton = styled.button`
     cursor: pointer;
     font-weight: bold;
 
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+
     &:hover {
         box-shadow: rgb(30, 42, 74) 0px 12px 24px -10px;
     }

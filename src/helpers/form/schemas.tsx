@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { FormErrors } from './formErrors';
+import { FormErrors } from './errors';
 
 export const CalculatorInputSchema = Yup.object().shape({
     plan: Yup.string().required(FormErrors.requiredField),

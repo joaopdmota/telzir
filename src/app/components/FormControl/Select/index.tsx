@@ -9,6 +9,9 @@ interface SelectProps {
     value: string;
 }
 
+const setValue = (options: any, value: any, name: any) =>
+    options.filter((option: any) => option.value === value);
+
 const CustomSelect: FunctionComponent<SelectProps> = ({
     name,
     onBlur,
@@ -16,15 +19,23 @@ const CustomSelect: FunctionComponent<SelectProps> = ({
     value,
     setFieldValue,
 }) => (
-    <Select
-        placeholder=""
-        options={options}
-        name={name}
-        value={options ? options.find((option) => option.value === value) : ''}
-        onChange={(option: any) => setFieldValue(name, option.value)}
-        onBlur={onBlur}
-        styles={customStyles}
-    />
+    <>
+        {JSON.stringify(value)}
+        <Select
+            placeholder=""
+            options={options}
+            name={name}
+            value={setValue(options, value, name)}
+            onChange={(option: any) => {
+                if (name === 'origin') {
+                    setFieldValue('destiny', '');
+                }
+                setFieldValue(name, option.value);
+            }}
+            onBlur={onBlur}
+            styles={customStyles}
+        />
+    </>
 );
 
 const customStyles = {
@@ -45,6 +56,10 @@ const customStyles = {
         display: 'flex',
         background: 'white',
         borderRadius: 5,
+
+        '@media only screen and (max-width: 1200px)': {
+            width: '100%',
+        },
     }),
     menu: () => ({
         marginTop: 1,

@@ -5,12 +5,9 @@ interface DiscountRequest {
     minutes: string;
 }
 
-export const getDiscountRequest = async ({
-    origin,
-    minutes,
-    plan,
-    destiny,
-}: DiscountRequest) => {
+export const getDiscountRequest = async (values: DiscountRequest) => {
+    const { origin, minutes, plan, destiny } = values;
+
     await sleep(2000);
     return generateSimulation(origin, minutes, plan, destiny);
 };
@@ -21,29 +18,33 @@ const generateSimulation = (
     plan: string,
     destiny: string,
 ) => {
-    const discount = fees
+    const planMatch = fees
         .filter((fee) => fee.origin === origin && fee.destination === destiny)
         .map((fee) => fee.feePerMinute)
         .reduce((acc, item: any) => item || null, 0);
 
     const parsedMinutes = Number(minutes);
     const selectedPlan = Number(getPlan(plan));
-    const sumWithoutPlan = Number(discount) * Number(minutes);
+    const sumWithoutPlan = Number(planMatch) * Number(minutes);
     const totalUsed = parsedMinutes - selectedPlan;
-    const sumWithPlan = totalUsed * Number(discount);
+    const sumWithPlan = totalUsed * Number(planMatch);
     const faleMaisFee = 0.1;
     const finalCost = sumWithPlan * faleMaisFee + sumWithPlan;
 
     return parsedMinutes < selectedPlan
         ? {
-              withFaleMais: finalCost,
-              withoutFaleMais: 0,
+              withFaleMais: 0,
+              withoutFaleMais: sumWithoutPlan,
+              minutes: parsedMinutes,
+              discountOffered: 0,
+              status: 400,
           }
         : {
               withFaleMais: finalCost,
               withoutFaleMais: sumWithoutPlan,
-              minutes: minutes,
+              minutes: parsedMinutes,
               discountOffered: sumWithoutPlan - finalCost,
+              status: 200,
           };
 };
 
@@ -81,5 +82,24 @@ export const fees = [
         origin: '018',
         destination: '011',
         feePerMinute: '1.9',
+    },
+];
+
+export const mappedCalls = [
+    {
+        origin: '011',
+        destinations: ['016', '017', '018'],
+    },
+    {
+        origin: '016',
+        destinations: ['011'],
+    },
+    {
+        origin: '017',
+        destinations: ['011'],
+    },
+    {
+        origin: '018',
+        destinations: ['011'],
     },
 ];
