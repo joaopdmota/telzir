@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import CookieConsent from 'react-cookie-consent';
 import styled from 'styled-components';
+
 import banner from '../../assets/images/banner.png';
 import Button from '../components/Button';
 import Divider from '../components/Divider';

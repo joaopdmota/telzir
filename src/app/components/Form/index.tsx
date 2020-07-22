@@ -2,6 +2,8 @@ import React, { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import { Grid } from '@material-ui/core';
+import { FaRegSadCry } from 'react-icons/fa';
+
 import StyledCard from '../Card';
 import Modal from '../Modal';
 import Button from '../Button';
@@ -10,7 +12,8 @@ import Error from '../FormControl/Error';
 import Select from '../FormControl/Select';
 import { InputWrapper, Label } from '../Layout';
 import Divider from '../Divider';
-import { CalculatorInputSchema, Options } from '../../../helpers';
+import { Options } from '../../../helpers';
+import { CalculatorInputSchema, calcInitialState } from './form.schema';
 import { getDiscountRequest, mappedCalls } from '../../core';
 
 const setOptions = (options: any, value: any) =>
@@ -30,7 +33,7 @@ const Form: FunctionComponent = () => {
         withoutFaleMais: 0,
         minutes: 0,
         discountOffered: 0,
-        status: 0,
+        status: 400,
     });
     const [isLoading, setIsLoading] = useState(false);
 
@@ -38,15 +41,9 @@ const Form: FunctionComponent = () => {
         <Wrapper>
             <Formik
                 validateOnMount
-                initialValues={{
-                    plan: '',
-                    minutes: '',
-                    origin: '',
-                    destiny: '',
-                }}
+                initialValues={calcInitialState}
                 validationSchema={CalculatorInputSchema}
                 onSubmit={async (values) => {
-                    console.log(values);
                     setIsLoading(true);
                     const simulationResult = await getDiscountRequest(values);
                     setSimulationResults({ ...simulationResult });
@@ -140,6 +137,20 @@ const Form: FunctionComponent = () => {
                     isOpen={modalResponse}
                     closeModal={() => setModalResponse(false)}
                 >
+                    {simulationResults?.status === 400 && (
+                        <Grid
+                            container
+                            direction="row"
+                            justify="center"
+                            alignItems="center"
+                        >
+                            <ErrorMessage>
+                                <span>Não há planos a serem utilizados</span>
+                                <FaRegSadCry />
+                            </ErrorMessage>
+                        </Grid>
+                    )}
+
                     <Grid
                         container
                         direction="row"
@@ -177,6 +188,22 @@ const Wrapper = styled.div`
         @media screen and (max-width: 768px) {
             height: max-content;
         }
+    }
+`;
+
+const ErrorMessage = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & span {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    & svg {
+        font-size: 28px;
     }
 `;
 

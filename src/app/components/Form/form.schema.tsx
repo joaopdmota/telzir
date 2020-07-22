@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { FormErrors } from './errors';
+import { FormErrors } from '../../../helpers/form/errors';
 
 export const CalculatorInputSchema = Yup.object().shape({
     plan: Yup.string().required(FormErrors.requiredField),
@@ -9,3 +9,11 @@ export const CalculatorInputSchema = Yup.object().shape({
     origin: Yup.string().required(FormErrors.requiredField),
     destiny: Yup.string().required(FormErrors.requiredField),
 });
+
+
+export const calcInitialState = Object.freeze({
+    plan: '',
+    minutes: '',
+    origin: '',
+    destiny: '',
+})

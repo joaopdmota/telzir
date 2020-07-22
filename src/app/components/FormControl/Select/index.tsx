@@ -19,23 +19,20 @@ const CustomSelect: FunctionComponent<SelectProps> = ({
     value,
     setFieldValue,
 }) => (
-    <>
-        {JSON.stringify(value)}
-        <Select
-            placeholder=""
-            options={options}
-            name={name}
-            value={setValue(options, value, name)}
-            onChange={(option: any) => {
-                if (name === 'origin') {
-                    setFieldValue('destiny', '');
-                }
-                setFieldValue(name, option.value);
-            }}
-            onBlur={onBlur}
-            styles={customStyles}
-        />
-    </>
+    <Select
+        placeholder=""
+        options={options}
+        name={name}
+        value={setValue(options, value, name)}
+        onChange={(option: any) => {
+            if (name === 'origin') {
+                setFieldValue('destiny', '');
+            }
+            setFieldValue(name, option.value);
+        }}
+        onBlur={onBlur}
+        styles={customStyles}
+    />
 );
 
 const customStyles = {
