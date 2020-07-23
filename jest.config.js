@@ -3,10 +3,13 @@ module.exports = {
     collectCoverageFrom: [
         '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
         '!**/node_modules/**',
+        "!<rootDir>/src/index.tsx"
     ],
     preset: 'ts-jest',
-    roots: ['<rootDir>/src'],
-    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+    setupFilesAfterEnv: [
+        '<rootDir>/config/setupTests.ts',
+        '@testing-library/jest-dom/extend-expect'
+    ],
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
     },

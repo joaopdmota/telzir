@@ -10,10 +10,9 @@ export const CalculatorInputSchema = Yup.object().shape({
     destiny: Yup.string().required(FormErrors.requiredField),
 });
 
-
 export const calcInitialState = Object.freeze({
     plan: '',
     minutes: '',
     origin: '',
     destiny: '',
-})
+});

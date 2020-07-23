@@ -22,7 +22,7 @@ const styles = {
     },
 };
 
-Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
 
 const CustomModal: FunctionComponent<ModalProps> = ({
     isOpen,

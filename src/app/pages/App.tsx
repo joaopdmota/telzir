@@ -91,7 +91,7 @@ const PageContentWrapper = styled.div`
     }
 `;
 
-const Home: FunctionComponent = () => {
+const App: FunctionComponent = () => {
     const [startSimulation, setStartSimulation] = useState(false);
 
     return (
@@ -134,4 +134,4 @@ const Home: FunctionComponent = () => {
     );
 };
 
-export default Home;
+export default App;
