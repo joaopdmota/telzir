@@ -31,27 +31,19 @@ Yarn was my choice to this project, but feel comfortable to choose.
 
 Lets start:
 
-# 1) Installing the dependencies
+# 1) Docker is always welcome
+```bash
+$ docker-compose run --rm app ash
+```
+
+# 2) Installing the dependencies
 ```bash
 
 $ yarn install
 ```
 
-# 2) Docker is always welcome
-```bash
-$ docker-compose run --rm app ash
-```
-
-or
-
-```bash
-$ docker-compose build app 
-```
-whether you wants to rebuild an image
-
 
 # 3) Initializing the application
-inside the container run:
 ```bash
 $ yarn start
 ```
