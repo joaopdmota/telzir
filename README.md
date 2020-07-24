@@ -31,13 +31,15 @@ $ yarn install
 # 2) Docker is always welcome
 ```bash
 $ docker-compose run --rm app ash
+```
 
 or
 
+```bash
 $ docker-compose build app 
-
-whether you wants to rebuild an image
 ```
+whether you wants to rebuild an image
+
 
 # 3) Initializing the application
 inside the container run:
