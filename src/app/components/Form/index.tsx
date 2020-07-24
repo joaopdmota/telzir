@@ -33,7 +33,7 @@ const Form: FunctionComponent = () => {
         withoutFaleMais: 0,
         minutes: 0,
         discountOffered: 0,
-        status: 400,
+        status: 0,
     });
     const [isLoading, setIsLoading] = useState(false);
 
