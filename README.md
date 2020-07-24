@@ -7,7 +7,7 @@ FaleMais web app
     Thinking about that, we created a webpage where you can calculate all the cost of call time.
     The instructions below will guide you to use this webpage
 
-## Installation
+## Requisites
 
 [Docker](https://www.docker.com)
 
@@ -22,7 +22,7 @@ or
 
 In this project I used yarn as default package manager. So lets start:
 
-# 1) Install the dependencies
+# 1) Installing the dependencies
 ```bash
 
 $ yarn install
