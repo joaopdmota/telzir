@@ -17,6 +17,12 @@
 [compose](https://docs.docker.com/compose) is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. To learn more about all the features of Compose, see the list of features.
 
 
+### plis
+
+
+[plis](https://github.com/IcaliaLabs/plis) is a tool for help your development process with docker compose by asking nicely
+
+
 ### npm
 
 
@@ -33,7 +39,12 @@ Lets start:
 
 # 1) Docker is always welcome
 ```bash
-$ docker-compose run --rm app ash
+$ docker-compose run --rm app ash 
+```
+or 
+
+```bash
+$ plis run app ash 
 ```
 
 # 2) Installing the dependencies
