@@ -1,7 +1,5 @@
 
-# Project Name
-
-FaleMais web app
+# FaleMais web app
 
     Telzir is always worried with their clients.
     Thinking about that, we created a webpage where you can calculate all the cost of call time.
