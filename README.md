@@ -60,11 +60,17 @@ $ yarn start
 ```
 
 ### Running tests
+```bash
 
-    yarn test
+$ yarn test
+
+```
 
 ### Running linter
+```bash
 
-    yarn lint
+$ yarn lint
+
+```
 
 # 4) Be happy! :smiley:
