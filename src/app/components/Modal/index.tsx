@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import { Grid } from '@material-ui/core';
 import Modal from 'react-modal';
 
+import Grid from '../Grid';
 import Button from '../Button';
 
 interface ModalProps {

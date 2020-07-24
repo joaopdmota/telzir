@@ -9,14 +9,21 @@ FaleMais web app
 
 ## Installation
 
-    [Docker](https://www.docker.com)
-    [docker-compose](https://docs.docker.com/compose)
-    [npm](https://www.npmjs.com/)
-    [yarn](https://yarnpkg.com/) (alternative to npm)
+[Docker](https://www.docker.com)
 
+[docker-compose](https://docs.docker.com/compose)
+
+[npm](https://www.npmjs.com)
+
+or
+
+[yarn](https://yarnpkg.com) 
 
 # 1) install the dependecies
 ```bash
+
+In this project I used yarn as default package manager. So lets start with:
+
 $ yarn install
 ```
 

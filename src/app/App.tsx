@@ -16,11 +16,7 @@ const Wrapper = styled.div`
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background-image: -webkit-linear-gradient(
-        139deg,
-        rgb(100, 43, 115) 0%,
-        rgb(198, 66, 110) 100%
-    );
+    background-color: rgb(232, 44, 79);
 
     @media (max-width: 950px) {
         overflow: auto;

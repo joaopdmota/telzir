@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
-import { Grid } from '@material-ui/core';
 import { FaRegSadCry } from 'react-icons/fa';
 
+import Grid from '../Grid';
 import StyledCard from '../Card';
 import Modal from '../Modal';
 import Button from '../Button';
