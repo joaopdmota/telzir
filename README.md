@@ -22,7 +22,9 @@
 [yarn](https://yarnpkg.com) is a new package manager that replaces the existing workflow for the npm client or other package managers while remaining compatible with the npm registry.
 
 
-Yarn was my choice to this project, but feel comfortable to choose. So lets start:
+Yarn was my choice to this project, but feel comfortable to choose.
+
+Lets start:
 
 # 1) Installing the dependencies
 ```bash
