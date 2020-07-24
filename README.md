@@ -3,7 +3,7 @@
 
     Telzir is always worried with their clients.
     Thinking about that, we created a webpage where you can calculate all the cost of call time.
-    The instructions below will guide you to use this webpage
+    The instructions below will guide you to run the app locally
 
 ## Requisites
 
