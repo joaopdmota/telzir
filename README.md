@@ -56,11 +56,11 @@ inside the container run:
 $ yarn start
 ```
 
-### Running Tests
+### Running tests
 
     yarn test
 
-### Running Linter
+### Running linter
 
     yarn lint
 
