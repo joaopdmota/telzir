@@ -13,21 +13,22 @@ FaleMais web app
 
 [docker-compose](https://docs.docker.com/compose)
 
-[npm](https://www.npmjs.com)
+[npm](https://www.npmjs.com) 
 
 or
 
 [yarn](https://yarnpkg.com) 
 
-# 1) install the dependecies
-```bash
 
-In this project I used yarn as default package manager. So lets start with:
+In this project I used yarn as default package manager. So lets start:
+
+# 1) Install the dependencies
+```bash
 
 $ yarn install
 ```
 
-# 2) Running with docker
+# 2) Docker is always welcome
 ```bash
 $ docker-compose run --rm app ash
 
@@ -39,19 +40,18 @@ whether you wants to rebuild an image
 ```
 
 # 3) Initializing the application
-```bash
 inside the container run:
+```bash
 $ yarn start
 ```
 
-### Run Tests
+### Running Tests
 
     yarn test
 
-### Run Linter
+### Running Linter
 
     yarn lint
 
-## License
-
-    Images by: https://www.vhv.rs/
+# 4) Be happy! :smiley:
+```
