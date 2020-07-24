@@ -16,7 +16,10 @@ const Wrapper = styled.div`
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background-color: rgb(232, 44, 79);
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
     @media (max-width: 950px) {
         overflow: auto;
@@ -113,11 +116,11 @@ const App: FunctionComponent = () => {
                         {startSimulation ? (
                             <Form />
                         ) : (
-                            <Button
-                                handleClick={() => setStartSimulation(true)}
-                                text="Calcular economia"
-                            />
-                        )}
+                                <Button
+                                    handleClick={() => setStartSimulation(true)}
+                                    text="Calcular economia"
+                                />
+                            )}
                     </Fade>
                 </div>
                 <div className="flex banner">

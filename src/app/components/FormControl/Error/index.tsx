@@ -23,7 +23,7 @@ const Error = styled.span`
     font-size: 14px;
     line-height: 177.4%;
     letter-spacing: 0.085em;
-    color: #eda1e4;
+    color: #ff4545;
 `;
 
 export default InputError;

@@ -42,10 +42,10 @@ const customStyles = {
     option: (...params: any) => ({
         padding: 20,
         '&:hover': {
-            background: 'hotpink',
+            background: '#c31432',
             color: 'white',
         },
-        background: params[1].isSelected ? 'black' : 'unset',
+        background: params[1].isSelected ? '#240b36' : 'unset',
         color: params[1].isSelected ? 'white' : 'unset',
     }),
     control: () => ({
