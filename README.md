@@ -9,23 +9,33 @@ FaleMais web app
 
 ## Installation
 
-- [Pre-requisites]
-
     [Docker](https://www.docker.com)
+    [docker-compose](https://docs.docker.com/compose)
+    [npm](https://www.npmjs.com/)
+    [yarn](https://yarnpkg.com/) (alternative to npm)
 
-## Docker
-    docker-compose build app
-    docker-compose run app ash
 
-### Installing
-    inside the container run:
-    yarn install
+# 1) install the dependecies
+```bash
+$ yarn install
+```
 
-## Running
+# 2) Running with docker
+```bash
+$ docker-compose run --rm app ash
 
-### Start the App
+or
 
-    yarn start
+$ docker-compose build app 
+
+whether you wants to rebuild an image
+```
+
+# 3) Initializing the application
+```bash
+inside the container run:
+$ yarn start
+```
 
 ### Run Tests
 
@@ -34,11 +44,6 @@ FaleMais web app
 ### Run Linter
 
     yarn lint
-
-    or
-
-    yarn lint --fix
-
 
 ## License
 

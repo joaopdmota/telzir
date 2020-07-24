@@ -2,10 +2,10 @@ import React, { FunctionComponent, useState } from 'react';
 import CookieConsent from 'react-cookie-consent';
 import styled from 'styled-components';
 
-import banner from '../../assets/images/banner.png';
-import Button from '../components/Button';
-import Divider from '../components/Divider';
-import Form from '../components/Form';
+import banner from '../assets/images/banner.png';
+import Button from './components/Button';
+import Divider from './components/Divider';
+import Form from './components/Form';
 
 // https://medium.com/@yangnana11/react-import-react-reveal-7f7d484f6802
 const Zoom = require('react-reveal/Zoom');
